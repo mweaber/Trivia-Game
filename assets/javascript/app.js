@@ -209,15 +209,23 @@ function results() {
 }
 
 $(document).ready(function () {
+    $(".gameBoard").hide();
+    $(".results").hide();
+    
+    
 
     function gameStart() {
         $("#startButton").on("click", function () {
+            
+            $(".gameBoard").show();
             // $("#replayButton").hide(); Replay button to add later
-            var timeRemain = 60;
+            var timeRemain = 45;
             var countTime = setInterval(timer, 1000);
             function timer() {
                 if (timeRemain <= 0) {
                     clearInterval(countTime);
+                    $(".gameBoard").hide();
+                    $(".results").show();
                     winsCheck();
                     // $("#replayButton").show(gameStart()); Replay button to add later
 
