@@ -74,91 +74,80 @@ var question10 = {
 }
 
 function createQ() {
-    function addQuestion1() {
-        $("#question1").text(question1.question);
-        $("#Lu").text(question1.pick1);
-        $("#Ekblad").text(question1.pick2);
-        $("#Barkov").text(question1.pick3);
-        $("#Trocheck").text(question1.pick4);
-    }
-    function addQuestion2() {
-        $("#question2").text(question2.question);
-        $("#Grit").text(question2.pick1);
-        $("#Stankley").text(question2.pick2);
-        $("#Paul").text(question2.pick3);
-        $("#Doug").text(question2.pick4);
-    }
-    function addQuestion3(){
-        $("#question3").text(question3.question);
-        $("#Atl").text(question3.pick1);
-        $("#Cen").text(question3.pick2);
-        $("#Met").text(question3.pick3);
-        $("#Pac").text(question3.pick4);
-    }
-    function addQuestion4(){
-        $("#question4").text(question4.question);
-        $("#west").text(question4.pick1);
-        $("#amer").text(question4.pick2);
-        $("#can").text(question4.pick3);
-        $("#east").text(question4.pick4);
-    }
-    function addQuestion5(){
-        $("#question5").text(question5.question);
-        $("#1993").text(question5.pick1);
-        $("#1990").text(question5.pick2);
-        $("#2005").text(question5.pick3);
-        $("#1989").text(question5.pick4);
-    }
-    function addQuestion6(){
-        $("#question6").text(question6.question);
-        $("#dade").text(question6.pick1);
-        $("#jack").text(question6.pick2);
-        $("#sun").text(question6.pick3);
-        $("#port").text(question6.pick4);
-    }
-    function addQuestion7(){
-        $("#question7").text(question7.question);
-        $("#olli").text(question7.pick1);
-        $("#pavel").text(question7.pick2);
-        $("#stephen").text(question7.pick3);
-        $("#scott").text(question7.pick4);
-    }
-    function addQuestion8(){
-        $("#question8").text(question8.question);
-        $("#horton").text(question8.pick1);
-        $("#kozlov").text(question8.pick2);
-        $("#dvorak").text(question8.pick3);
-        $("#bure").text(question8.pick4);
-    }
-    function addQuestion9(){
-        $("#question9").text(question9.question);
-        $("#rats").text(question9.pick1);
-        $("#fans").text(question9.pick2);
-        $("#pucks").text(question9.pick3);
-        $("#hat").text(question9.pick4);
-    }
-    function addQuestion10(){
-        $("#question10").text(question10.question);
-        $("#yand").text(question10.pick1);
-        $("#bark").text(question10.pick2);
-        $("#bjug").text(question10.pick3);
-        $("#math").text(question10.pick4);
-    }
-    addQuestion1();
-    addQuestion2();
-    addQuestion3();
-    addQuestion4();
-    addQuestion5();
-    addQuestion6();
-    addQuestion7();
-    addQuestion8();
-    addQuestion9();
-    addQuestion10();
+
+    $("#question1").text(question1.question);
+    $("#Lu").text(question1.pick1);
+    $("#Ekblad").text(question1.pick2);
+    $("#Barkov").text(question1.pick3);
+    $("#Trocheck").text(question1.pick4);
+
+    $("#question2").text(question2.question);
+    $("#Grit").text(question2.pick1);
+    $("#Stankley").text(question2.pick2);
+    $("#Paul").text(question2.pick3);
+    $("#Doug").text(question2.pick4);
+
+    $("#question3").text(question3.question);
+    $("#Atl").text(question3.pick1);
+    $("#Cen").text(question3.pick2);
+    $("#Met").text(question3.pick3);
+    $("#Pac").text(question3.pick4);
+
+    $("#question4").text(question4.question);
+    $("#west").text(question4.pick1);
+    $("#amer").text(question4.pick2);
+    $("#can").text(question4.pick3);
+    $("#east").text(question4.pick4);
+
+    $("#question5").text(question5.question);
+    $("#1993").text(question5.pick1);
+    $("#1990").text(question5.pick2);
+    $("#2005").text(question5.pick3);
+    $("#1989").text(question5.pick4);
+
+    $("#question6").text(question6.question);
+    $("#dade").text(question6.pick1);
+    $("#jack").text(question6.pick2);
+    $("#sun").text(question6.pick3);
+    $("#port").text(question6.pick4);
+
+    $("#question7").text(question7.question);
+    $("#olli").text(question7.pick1);
+    $("#pavel").text(question7.pick2);
+    $("#stephen").text(question7.pick3);
+    $("#scott").text(question7.pick4);
+
+    $("#question8").text(question8.question);
+    $("#horton").text(question8.pick1);
+    $("#kozlov").text(question8.pick2);
+    $("#dvorak").text(question8.pick3);
+    $("#bure").text(question8.pick4);
+
+    $("#question9").text(question9.question);
+    $("#rats").text(question9.pick1);
+    $("#fans").text(question9.pick2);
+    $("#pucks").text(question9.pick3);
+    $("#hat").text(question9.pick4);
+
+    $("#question10").text(question10.question);
+    $("#yand").text(question10.pick1);
+    $("#bark").text(question10.pick2);
+    $("#bjug").text(question10.pick3);
+    $("#math").text(question10.pick4);
 }
 
 function winsCheck() {
     var q1btn3 = document.getElementById("q1btn3");
     var q2btn2 = document.getElementById("q2btn2");
+    var q3btn1 = document.getElementById("q3btn1");
+    var q4btn4 = document.getElementById("q4btn4");
+    var q5btn1 = document.getElementById("q5btn1");
+    var q6btn3 = document.getElementById("q6btn3");
+    var q7btn1 = document.getElementById("q7btn1");
+    var q8btn4 = document.getElementById("q8btn4");
+    var q9btn1 = document.getElementById("q9btn1");
+    var q10btn2 = document.getElementById("q10btn2");
+
     if (q1btn3.checked) {
         correct++
         // alert("correct"); COMPLETE
@@ -167,6 +156,46 @@ function winsCheck() {
         // alert("try again next time"); COMPLETE
     }
     if (q2btn2.checked) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if (q3btn1.checked) {
+        correct++
+    }else {
+        incorrect++;
+    }
+    if (q4btn4.checked) {
+        correct++;
+    }else {
+        incorrect++;
+    }
+    if (q5btn1.checked) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if (q6btn3.checked) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if (q7btn1.checked) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if (q8btn4.checked) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if (q9btn1.checked) {
+        correct++;
+    } else {
+        incorrect++;
+    }
+    if (q10btn2.checked) {
         correct++;
     } else {
         incorrect++;
@@ -180,12 +209,11 @@ function results() {
 }
 
 $(document).ready(function () {
-    
 
     function gameStart() {
         $("#startButton").on("click", function () {
             // $("#replayButton").hide(); Replay button to add later
-            var timeRemain = 11;
+            var timeRemain = 60;
             var countTime = setInterval(timer, 1000);
             function timer() {
                 if (timeRemain <= 0) {
@@ -204,9 +232,6 @@ $(document).ready(function () {
     gameStart();
     createQ();
     results();
-    addQuestion1();
-    addQuestion2();
-
 });
 
 
