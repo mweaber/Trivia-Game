@@ -1,76 +1,77 @@
 var correct = 0;
 var incorrect = 0;
-
+var timeRemain = 10;
+var countTime = setInterval(timer, 1000);
 
 var question1 = {
-    question: "Who is the current Florida Panthers captain?",
-    pick1: "Roberto Luongo",
-    pick2: "Aaron Ekblad",
-    pick3: "Aleksander Barkov",
-    pick4: "Vincent Trocheck"
+    question: "Who is the main protagonist of the game?",
+    pick1: "Dragonball",
+    pick2: "Herod",
+    pick3: "Dragonborn",
+    pick4: "Wabbajack"
 }
 var question2 = {
-    question: "Who is the mascot of the Florida Panthers?",
-    pick1: "Gritty",
-    pick2: "Stanley C. Panther",
-    pick3: "Pauly Panther",
-    pick4: "Douglas Dougerson"
+    question: "In which city is the Thieves Guild located?",
+    pick1: "Markarth",
+    pick2: "Riften",
+    pick3: "Dagobah",
+    pick4: "Whiterun"
 }
 var question3 = {
-    question: "In what division do the Florida Panthers play in?",
-    pick1: "Atlantic",
-    pick2: "Central",
-    pick3: "Metropolitan",
-    pick4: "Pacific"
+    question: "Where did the guard take an arrow?",
+    pick1: "To the knee",
+    pick2: "To the chest",
+    pick3: "To the arm",
+    pick4: "To the ear"
 }
 var question4 = {
-    question: "In what conference do the Florida Panthers play in?",
-    pick1: "Western",
-    pick2: "American",
-    pick3: "Canadian",
-    pick4: "Eastern"
+    question: "What two ingredients mix to make a health potion?",
+    pick1: "Cheese wheel and tomato",
+    pick2: "Nightshade and Falmer Ears",
+    pick3: "Banana and Strawberries",
+    pick4: "Wheat and Imp Stool"
 }
 var question5 = {
-    question: "In what year were the Florida Panthers founded?",
-    pick1: "1993",
-    pick2: "1990",
-    pick3: "2005",
-    pick4: "1989"
+    question: "Which wild animal had pincers and hides near water?",
+    pick1: "Mudcrabs",
+    pick2: "Wolf",
+    pick3: "Daedric",
+    pick4: "Troll"
 }
 var question6 = {
-    question: "In what city do the Florida Panthers play in?",
-    pick1: "Dade",
-    pick2: "Jacksonville",
-    pick3: "Sunrise",
-    pick4: "Port St. Lucie"
+    question: "What is the highest point in the world?",
+    pick1: "The Wall of the World",
+    pick2: "The Peak of the Kingdom",
+    pick3: "The Throat of the World",
+    pick4: "Mountain of the Realm"
 }
 var question7 = {
-    question: "Who is the leading goal scorer in Florida Panthers history?",
-    pick1: "Olli Jokinen",
-    pick2: "Pavel Bure",
-    pick3: "Stephen Weiss",
-    pick4: "Scott Mellanby"
+    question: "Who is the Jarl of Whiterun?",
+    pick1: "Jarl Balgruuf",
+    pick2: "Jarl Scmarl",
+    pick3: "Ulfric Stormcloak",
+    pick4: "Sklad"
 }
 var question8 = {
-    question: "Which Florida Panther player has the most goals in a season with 59?",
-    pick1: "Nathan Horton",
-    pick2: "Victor Kozlov",
-    pick3: "Radek Dvorak",
-    pick4: "Pavel Bure"
+    question: "Which component below is needed to enchant an item?",
+    pick1: "Ingots",
+    pick2: "Vials",
+    pick3: "Reagent",
+    pick4: "Soul Gem"
 }
 var question9 = {
-    question: "What is tossed onto the ice after a home win?",
-    pick1: "Rubber rats",
-    pick2: "Opposing fans",
-    pick3: "Pucks",
-    pick4: "Hats"
+    question: "What is a delicious treat in the game?",
+    pick1: "Sweet Roll",
+    pick2: "Cake",
+    pick3: "Apple Pie",
+    pick4: "Scones"
 }
 var question10 = {
-    question: "Which player has the nickname 'Sasha'?",
-    pick1: "Keith Yandle",
-    pick2: "Aleksander Barkov",
-    pick3: "Nick Bjugstad",
-    pick4: "Michael Matheson"
+    question: "Which is the guild of assassins?",
+    pick1: "The Murder Club",
+    pick2: "The Dark Brotherhood",
+    pick3: "Shadow Lurkers",
+    pick4: "The Black Hand"
 }
 
 function createQ() {
@@ -162,12 +163,12 @@ function winsCheck() {
     }
     if (q3btn1.checked) {
         correct++
-    }else {
+    } else {
         incorrect++;
     }
     if (q4btn4.checked) {
         correct++;
-    }else {
+    } else {
         incorrect++;
     }
     if (q5btn1.checked) {
@@ -211,24 +212,21 @@ function results() {
 $(document).ready(function () {
     $(".gameBoard").hide();
     $(".results").hide();
-    
-    
 
     function gameStart() {
         $("#startButton").on("click", function () {
-            
+            $("#startButton").hide();
             $(".gameBoard").show();
-            // $("#replayButton").hide(); Replay button to add later
-            var timeRemain = 45;
-            var countTime = setInterval(timer, 1000);
+            document.getElementById("battleAudio").play();
+            timeRemain = 45;
+            countTime = setInterval(timer, 1000);
             function timer() {
                 if (timeRemain <= 0) {
                     clearInterval(countTime);
                     $(".gameBoard").hide();
                     $(".results").show();
                     winsCheck();
-                    // $("#replayButton").show(gameStart()); Replay button to add later
-
+                    document.getElementById("battleAudio").pause();
                 } else {
                     timeRemain = timeRemain - 1;
                     document.getElementById("timer").textContent = timeRemain + " secs left";
@@ -237,6 +235,28 @@ $(document).ready(function () {
         });
 
     }
+    $("#playAgain").on("click", function () {
+        $(".results").hide();
+        correct = 0;
+        incorrect=0
+        document.getElementById("battleAudio").play();
+        $('input[name="gender"]').prop('checked', false);
+        $(".gameBoard").show();
+        timeRemain = 45;
+        countTime = setInterval(timer, 1000);
+        function timer() {
+            if (timeRemain <= 0) {
+                document.getElementById("battleAudio").pause();
+                clearInterval(countTime);
+                $(".gameBoard").hide();
+                $(".results").show();
+                winsCheck();
+            } else {
+                timeRemain = timeRemain - 1;
+                document.getElementById("timer").textContent = timeRemain + " secs left";
+            }
+        }
+    });
     gameStart();
     createQ();
     results();

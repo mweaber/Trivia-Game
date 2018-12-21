@@ -3,16 +3,17 @@
 }
 
 body{
-    background: linear-gradient(to top right, hsl(56, 88%, 44%) 0%, hsl(357, 75%, 50%) 58%);
-    color:#1d1c1c;
+    background: linear-gradient(to top right, rgb(138, 137, 123) 0%, rgb(39, 24, 25) 58%);
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
     line-height:1.6;
     margin: 0;
     position:relative;
     font-variant: small-caps;
+    min-height: 99vh;
 }
 
 .gameBoard{
+    clear: both;
     margin:0 auto;
     width:960px;
     background-color: antiquewhite;
@@ -21,7 +22,7 @@ body{
 }
 
 .questionTitle{
-    color: darkgoldenrod;
+    color: #4cda14;
     text-decoration-line: underline;
     text-decoration-style: wavy;
 }
@@ -36,10 +37,8 @@ hr{
     border-width: 1px;
 }
 
-form input[type="radio"]{
-    padding:0 10px 0 0;
-    position:relative;top:-2px;
-    vertical-align: middle;
+input{
+    margin-right:2px;
 }
 
 #timerArea{
@@ -62,10 +61,20 @@ form input[type="radio"]{
 
 .results{
     padding:10px;
+    color: darkred;
+    background: grey;
 }
 
 img{
     float: right;
-    height: 215px;
-    width:650px;
+    height: 200px;
+    width:400px;
+}
+
+#startButton{
+    margin-bottom:3px;
+}
+
+#timer{
+    font-size: 28px;
 }
